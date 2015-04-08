@@ -63,9 +63,10 @@ stack<parint> afegeix_k_sobre_copia (stack<parint>& a, int k)
   stack<parint> aux;
   parint paraux;
   while (not s.empty()) {
-    paraux = s.top;
+    paraux = s.top();
     paraux.segon += k;
     aux.push(paraux);
+    s.pop();
   }
   while (not aux.empty()) {
     paraux = aux.top();
