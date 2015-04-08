@@ -35,6 +35,22 @@ void escriure_stack_parint (stack<parint> s)
   }
 }
 
-
+void busca_parella (stack<parint> s, int candidat)
+{
+  bool found = false;
+  parint aux;
+  while (not found and not s.empty()) {
+    aux = s.top();
+    if (aux.primer == candidat) {
+      cout << "El compañero del " << candidat << " en la pila es el " << aux.segon << endl;
+      found = true;
+    }
+    else if (aux.segon == candidat) {
+      cout << "El compañero del " << candidat << " en la pila es el " << aux.primer << endl;
+      found = true;
+    }
+    s.pop();
+  }
+}
 
 #endif
