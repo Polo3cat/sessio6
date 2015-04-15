@@ -3,6 +3,7 @@
 
 #include "Estudiant.hh"
 #include <cmath>
+#include <stack>
 
 void llegir_stack_estudiant (stack<Estudiant>& s)
 //PRE: true
@@ -20,7 +21,7 @@ void llegir_stack_estudiant (stack<Estudiant>& s)
     }
   }  
 }
-llegir_nota
+
 void escriure_stack_estudiant (stack<Estudiant> s)
 //PRE: true
 //POST: s'ha escrit pel canal estandard de sortida l'stack
@@ -41,7 +42,12 @@ void calcula_nota_mitja_stack_estudiant (stack<Estudiant>& s)
   stack<Estudiant> aux_stack;
   double nota;
   while (not s.empty()) {
-    aux_stack.push(s.top().modificar_nota(floor(s.top().consultar_nota() + 0.5)));
+    aux_est = s.top();
+    nota = aux_est.consultar_nota();
+    nota += 0.5;
+    nota = floor(nota);
+    aux_est.modificar_nota(nota);
+    aux_stack.push(aux_est);
     s.pop();
   } 
   while (not aux_stack.empty()) {
