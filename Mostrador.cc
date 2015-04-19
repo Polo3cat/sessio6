@@ -2,7 +2,7 @@
 
 Mostrador::Mostrador(int n)
 {
-  vector<stack<llibre> > mostrador(n);
+  mostrador = vector<stack<llibre> >(n);
 }
 
 Mostrador::~Mostrador(){}
@@ -38,5 +38,6 @@ void Mostrador::escriure_pila(int cat)
   aux = mostrador[cat - 1];
   while (not aux.empty()) {
     cout << aux.top().titol << endl;
+    aux.pop();
   }
 }
